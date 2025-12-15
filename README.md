@@ -116,7 +116,7 @@ O Front-end utiliza um componente principal (`consulta-credito.component`) que g
 
 ## 🧪 Testes Automatizados
 
-O projeto possui cobertura de testes unitários e de integração, garantindo a qualidade do código.
+O projeto possui cobertura de testes unitários, garantindo a qualidade do código.
 
 ### Testes Implementados
 * **`CreditoServiceTest` (JUnit & Mockito):** Focado na lógica de negócios. Garante que os métodos de busca funcionem corretamente e, crucialmente, verifica se o `messagePublisher` é invocado em todas as buscas (**Verificação de Comportamento**).
