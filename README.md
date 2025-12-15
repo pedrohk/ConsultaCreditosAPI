@@ -10,7 +10,7 @@ O objetivo principal é permitir a consulta de créditos por número de NFS-e ou
 * **Banco de Dados:** PostgreSQL (containerizado).
 * **Containerização:** Docker e Docker Compose.
 * **Mensageria:** Implementação do **Publisher Kafka** para auditoria de consultas.
-* **Testes:** Cobertura de testes unitários na camada Service e testes de integração na camada Controller (JUnit e Mockito).
+* **Testes:** Cobertura de testes unitários na camada Service (JUnit e Mockito).
 
 ---
 
