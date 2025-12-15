@@ -114,7 +114,7 @@ O Front-end utiliza um componente principal (`consulta-credito.component`) que g
 
 ---
 
-## 🧪 Testes Automatizados (Critério de Avaliação)
+## 🧪 Testes Automatizados
 
 O projeto possui cobertura de testes unitários e de integração, garantindo a qualidade do código.
 
