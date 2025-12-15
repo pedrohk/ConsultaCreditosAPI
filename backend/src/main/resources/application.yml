@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: creditos-api
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/creditosdb
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  kafka:
+    producer:
+      bootstrap-servers: kafka:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    template:
+      default-topic: creditos-consultados-topic
+
+server:
+  port: 8080

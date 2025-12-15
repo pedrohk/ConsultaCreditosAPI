@@ -1,0 +1,57 @@
+<div class="consulta-container">
+  <h2>Buscar Detalhes Fiscais de Crédito</h2>
+
+  <div class="search-controls">
+    <label for="searchType">Buscar por:</label>
+    <select id="searchType" [(ngModel)]="searchType">
+      <option value="numeroCredito">Nº do Crédito</option>
+      <option value="numeroNfse">Nº da NFSe</option>
+    </select>
+
+    <input
+      type="text"
+      [placeholder]="searchType === 'numeroCredito' ? 'Digite o Número do Crédito' : 'Digite o Número da NFSe'"
+      [(ngModel)]="searchValue"
+      (keyup.enter)="consultar()"
+    >
+    <button (click)="consultar()">Consultar</button>
+  </div>
+
+  <div *ngIf="erro" class="message error">
+    {{ erro }}
+  </div>
+
+  <div *ngIf="creditoResultado && creditoResultado.length > 0">
+    <div *ngFor="let item of creditoResultado; let i = index" class="resultado-card">
+      <h3>Detalhes Fiscais Encontrados (Registro {{ i + 1 }} de {{ creditoResultado.length }})</h3>
+
+      <p><strong>Número do Crédito:</strong> {{ item.numeroCredito }}</p>
+      <p><strong>Número da NFSe:</strong> {{ item.numeroNfse }}</p>
+      <p><strong>Data de Constituição:</strong> {{ item.dataConstituicao | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Tipo de Crédito:</strong> {{ item.tipoCredito }}</p>
+
+      <hr>
+
+      <p><strong>Valor ISSQN:</strong> {{ item.valorIssqn | currency:'BRL':'symbol':'1.2-2' }}</p>
+      <p><strong>Valor Faturado:</strong> {{ item.valorFaturado | currency:'BRL':'symbol':'1.2-2' }}</p>
+      <p><strong>Valor Dedução:</strong> {{ item.valorDeducao | currency:'BRL':'symbol':'1.2-2' }}</p>
+      <p><strong>Base de Cálculo:</strong> {{ item.baseCalculo | currency:'BRL':'symbol':'1.2-2' }}</p>
+
+      <hr>
+
+      <p><strong>Alíquota Aplicada:</strong> {{ item.aliquota }}%</p>
+      <p>
+        <strong>Simples Nacional:</strong>
+        <span [ngClass]="{'status-sim': item.simplesNacional, 'status-nao': !item.simplesNacional}">
+                {{ item.simplesNacional ? 'Sim' : 'Não' }}
+            </span>
+      </p>
+      <hr>
+    </div>
+  </div>
+
+  <div *ngIf="!creditoResultado && !erro" class="message info">
+    Use o formulário acima para consultar os dados de crédito.
+  </div>
+
+</div>
