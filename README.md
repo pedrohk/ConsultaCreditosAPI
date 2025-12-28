@@ -46,14 +46,13 @@ O projeto é configurado para ser executado totalmente via **Docker Compose**.
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [LINK_DO_SEU_REPOSITORIO]
+    git clone https://github.com/pedrohk/ConsultaCreditosAPI
     cd consultaCreditosAPI
     ```
 
 2.  **Construa e Inicie os Contêineres:**
     O `docker-compose.yml` irá construir a API Spring Boot, o Front-end Angular e iniciar os serviços PostgreSQL, Kafka e ZooKeeper.
-    ```bash
-    # A flag --build garante que a API e o Front-end sejam compilados
+    ```bash    
     docker compose up --build
     ```
     *Aguarde a inicialização. O PostgreSQL será populado com os dados de teste via `db/init.sql`, e a API levará alguns segundos para se conectar ao DB e ao Kafka.*
